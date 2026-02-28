@@ -123,9 +123,13 @@ gsettings set org.gnome.desktop.wm.keybindings switch-group-backward "['<Shift><
 gsettings reset org.gnome.desktop.wm.keybindings switch-input-source
 gsettings reset org.gnome.desktop.wm.keybindings switch-input-source-backward
 
-# Switch workspaces conflicts with default GNOME window left/right tiling
-gsettings set org.gnome.mutter.keybindings toggle-tiled-left "[]"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-right "[]"
+# Toggle window to left/right side of screen (with Ctrl+Left/Right)
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Primary>Left']"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Primary>Right']"
+
+# Maximize/restore window (with Ctrl+Up/Down)
+gsettings set org.gnome.desktop.wm.keybindings maximize "['<Primary>Up']"
+gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Primary>Down']"
 
 # Switch workspaces
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Super>Left']"
@@ -138,7 +142,7 @@ gsettings set org.gnome.shell.keybindings toggle-message-tray "[]"
 gsettings set org.gnome.shell.keybindings toggle-overview "['LaunchA']"
 
 # Show all applications (with mac's F4 key and imitate spotlight)
-gsettings set org.gnome.shell.keybindings toggle-application-view "['<Primary>space', 'LaunchB']"
+gsettings set org.gnome.shell.keybindings toggle-overview "['<Primary>space', 'LaunchB']"
 
 # Setting relocatable schema for Terminal
 if command -v gnome-terminal &> /dev/null ; then
